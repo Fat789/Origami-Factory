@@ -6,7 +6,10 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
@@ -18,8 +21,16 @@ public class Categorie {
 	private long id;
 	@JsonView(Views.ViewCommon.class)
 	private String nom;
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "categorie_id")
 	@JsonView(Views.ViewCommon.class)
 	private Categorie superCat;
+
+	@OneToMany(mappedBy = "superCat")
+	@JsonView(Views.ViewCommon.class)
+	private List<Categorie> superCats;
+
 	@JsonView(Views.ViewCategorie.class)
 	@ManyToMany(mappedBy = "categories", fetch = FetchType.EAGER)
 	private List<Origami> origamis;
@@ -50,6 +61,14 @@ public class Categorie {
 
 	public void setSuperCat(Categorie superCat) {
 		this.superCat = superCat;
+	}
+
+	public List<Categorie> getSuperCats() {
+		return superCats;
+	}
+
+	public void setSuperCats(List<Categorie> superCats) {
+		this.superCats = superCats;
 	}
 
 	public List<Origami> getOrigamis() {

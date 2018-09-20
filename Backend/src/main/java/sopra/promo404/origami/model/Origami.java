@@ -39,7 +39,7 @@ public class Origami {
 	private String imageOri;
 	@OneToMany(mappedBy="origami" , fetch=FetchType.EAGER)
 	private List<Etape> etapes;
-	@ManyToMany(fetch=FetchType.EAGER)
+	@ManyToMany
 	@JoinTable(name="categorie_origami")
 	private List<Categorie> categories;
 
