@@ -17,7 +17,9 @@ import { AdminComponent } from './admin/admin.component';
     OrigamiComponent,
     EtapeComponent,
     CategorieComponent,
-    AdminComponent
+    AdminComponent,
+    AdminComponent,
+    CategorieComponent
   ],
   imports: [
     BrowserModule,
