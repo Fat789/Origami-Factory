@@ -47,6 +47,24 @@ public class Origami {
 	public Origami() {
 		super();
 	}
+	
+	
+
+	public Origami(Long id, String nom, String tempsRea, int nbFeuille, Niveau niveau, float note, boolean actif,
+			String youtube, String imageOri, List<Categorie> categories) {
+		super();
+		this.id = id;
+		this.nom = nom;
+		this.tempsRea = tempsRea;
+		this.nbFeuille = nbFeuille;
+		this.niveau = niveau;
+		this.note = note;
+		this.actif = actif;
+		this.youtube = youtube;
+		this.imageOri = imageOri;
+		this.categories = categories;
+	}
+
 
 
 	public Long getId() {
