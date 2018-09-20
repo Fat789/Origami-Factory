@@ -15,10 +15,10 @@ public class Views {
 //
 //	
 
-	public static class ViewPatient extends ViewCommon {
+	public static class ViewOrigami extends ViewCommon {
 	}
 	
-	public static class ViewPatientWithConsultation extends ViewPatient {
+	public static class ViewOrigamiWithEtapes extends ViewOrigami {
 	}
 
 //	
