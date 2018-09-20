@@ -14,5 +14,5 @@ public interface IRepoCategorie extends JpaRepository<Categorie, Long> {
 	List<Categorie> findAllCategorie();
 
 	@Query("select distinct c from Categorie c left join fetch c.origamis o where c.id= :id")
-	Origami findCategorieByIdWithOrigami(@Param("id") Long id);
+	Categorie findCategorieByIdWithOrigami(@Param("id") Long id);
 }
