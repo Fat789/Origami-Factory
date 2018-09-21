@@ -4,6 +4,7 @@ import {FormsModule} from '@angular/forms';
 import {RouterModule, Routes} from '@angular/router';
 import {AdminComponent} from './admin.component';
 import {NgModule} from '@angular/core';
+import {HttpModule} from '@angular/http';
 
 const routes: Routes = [
     {path: 'admin', component: AdminComponent},
@@ -15,7 +16,8 @@ const routes: Routes = [
         BrowserModule,
         FormsModule,
         RouterModule,
-        RouterModule.forChild(routes)
+        RouterModule.forChild(routes),
+        HttpModule,
     ],
     declarations: [
         AdminComponent

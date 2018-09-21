@@ -6,13 +6,13 @@ import {HttpModule} from '@angular/http';
 import {AppComponent} from './app.component';
 import {NavbarComponent} from './navbar/navbar.component';
 
-import {AdminComponent} from './admin/admin.component';
 import {RouterModule, Routes} from '@angular/router';
 import {AccueilComponent} from './accueil/accueil.component';
 import {CategorieModule} from './categorie/categorie.module';
 import {OrigamiModule} from './origami/origami.module';
 import {EtapeModule} from './etape/etape.module';
 import {AppConfigurationService} from './app-configuration.service';
+import {AdminComponent} from './admin/admin.component';
 
 const routes: Routes = [
     {path: 'accueil', component: AccueilComponent},
@@ -27,6 +27,7 @@ const routes: Routes = [
         NavbarComponent,
         AccueilComponent,
         AdminComponent
+
     ],
     imports: [
         BrowserModule,
@@ -37,9 +38,7 @@ const routes: Routes = [
         OrigamiModule,
         EtapeModule
     ],
-    providers: [
-        AppConfigurationService
-    ],
+    providers: [AppConfigurationService],
     bootstrap: [AppComponent]
 })
 export class AppModule {
