@@ -13,7 +13,7 @@ import {AccueilComponent} from './accueil/accueil.component';
 import {CategorieModule} from './categorie/categorie.module';
 import {OrigamiModule} from './origami/origami.module';
 import {EtapeModule} from './etape/etape.module';
-import {AppConfigService} from './app-config.service';
+import {AppConfigurationService} from './app-configuration.service';
 
 const routes: Routes = [
     {path: 'accueil', component: AccueilComponent},
@@ -41,7 +41,7 @@ const routes: Routes = [
         EtapeModule,
     ],
     providers: [
-        AppConfigService
+        AppConfigurationService
     ],
     bootstrap: [AppComponent]
 })

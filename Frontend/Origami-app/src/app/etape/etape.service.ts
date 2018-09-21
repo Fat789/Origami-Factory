@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Http} from '@angular/http';
 import {Etape} from './etape';
+import {AppConfigurationService} from '../app-configuration.service';
 
 
 @Injectable()
@@ -9,7 +10,7 @@ export class EtapeService {
     etapes: Array<Etape>;
     etape: Etape;
 
-    constructor(private http: Http, private appConfig: AppConfigService, private etapeService: EtapeService) {
+    constructor(private http: Http, private appConfig: AppConfigurationService, private etapeService: EtapeService) {
         this.apiUrl = this.appConfig.apiUrl + 'etape/';
         this.http
             .get(this.apiUrl)
@@ -59,5 +60,4 @@ export class EtapeService {
             .delete(this.apiUrl + etape.id)
             .subscribe(resp => this.etapes.splice(pos, 1));
     }
-
 }

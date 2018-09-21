@@ -15,15 +15,15 @@
 
         <tbody>
         <tr *ngFor="let etape of etapes">
-            <td><a [routerLink]="['/salon', salon.id]">{{ salon.nom }}</a></td>
-            <td>{{ salon.description }}</td>
-            <td>{{ salon.createur.username }}</td>
-            <td>{{ salon.dateCreation | date:"dd/MM/yyyy" }}</td>
+            <td><a [routerLink]="['/etape', etape.id]">{{ etape.nom }}</a></td>
+            <td>{{ etape.numeroEtape }}</td>
+            <td>{{ etape.description }}</td>
+            <td>{{ etape.imageEtape }}</td>
             <td>
-                <button class="btn btn-warning" (click)="edit(salon)">Editer</button>
+                <button class="btn btn-warning" (click)="edit(etape)">Editer</button>
             </td>
             <td>
-                <button class="btn btn-danger" (click)="delete(salon)">Supprimer</button>
+                <button class="btn btn-danger" (click)="delete(etape)">Supprimer</button>
             </td>
         </tr>
         </tbody>
