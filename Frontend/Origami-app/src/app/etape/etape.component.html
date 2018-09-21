@@ -5,7 +5,7 @@
     <table class="table table-stripped mt-5">
         <thead>
         <tr>
-            <th class="text-center">Id</th>
+            <th class="text-center">Origami Concerné</th>
             <th class="text-center">Numéro de l'étape</th>
             <th class="text-center">Description</th>
             <th class="text-center">Image</th>
@@ -17,7 +17,7 @@
 
         <tbody>
         <tr *ngFor="let etape of list()">
-            <td>{{etape.id}}</td>
+            <td class="text-center">{{etape.origami.nom}}</td>
             <td class="text-center">{{ etape.numeroEtape }}</td>
             <td>{{ etape.description }}</td>
             <td>{{ etape.imageEtape }}</td>
@@ -30,12 +30,17 @@
             <td colspan="6"><a class="btn btn-success" (click)="add()">Ajouter</a></td>
         </tr>
         <tr *ngIf="formEtape">
-            <td>{{formEtape.id}}</td>
+            <td>
+                <select>
+                    <option *ngFor="let etape of list()">{{etape.origami.nom}}</option>
+                </select>
+            </td>
             <td><input type="text" placeholder="numéro étape" [(ngModel)]="formEtape.numeroEtape"/></td>
             <td><input type="text" placeholder="description" [(ngModel)]="formEtape.description"/></td>
             <td><input type="text" placeholder="image étape" [(ngModel)]="formEtape.imageEtape"/></td>
-            <td><a class="btn btn-info" (click)="save()">Valider</a></td>
-            <td><a class="btn btn-warning" (click)="cancel()">Annuler</a></td>
+            <td><a class="btn btn-info" (click)="save()">Valider</a>
+                <a class="btn btn-warning" (click)="cancel()">Annuler</a>
+            </td>
         </tr>
         </tbody>
     </table>
