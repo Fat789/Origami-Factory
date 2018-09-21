@@ -10,7 +10,7 @@ import sopra.promo404.origami.model.Categorie;
 import sopra.promo404.origami.model.Origami;
 
 public interface IRepoCategorie extends JpaRepository<Categorie, Long> {
-	@Query("select c from Categorie c where c.id= :id")
+	@Query("select c from Categorie c")
 	List<Categorie> findAllCategorie();
 
 	@Query("select distinct c from Categorie c left join fetch c.origamis o where c.id= :id")

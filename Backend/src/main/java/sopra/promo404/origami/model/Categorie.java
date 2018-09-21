@@ -18,7 +18,7 @@ public class Categorie {
 	@Id
 	@GeneratedValue
 	@JsonView(Views.ViewCommon.class)
-	private long id;
+	private Long id;
 	@JsonView(Views.ViewCommon.class)
 	private String nom;
 
@@ -28,7 +28,7 @@ public class Categorie {
 	private Categorie superCat;
 
 	@OneToMany(mappedBy = "superCat")
-	@JsonView(Views.ViewCommon.class)
+	@JsonView(Views.ViewCategorieDetail.class)
 	private List<Categorie> superCats;
 
 	@JsonView(Views.ViewCategorie.class)
@@ -39,11 +39,11 @@ public class Categorie {
 		super();
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

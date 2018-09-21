@@ -31,6 +31,9 @@ public class Views {
 	public static class ViewCategorie extends ViewCommon {
 	}
 	
+	public static class ViewCategorieDetail extends ViewCategorie {
+	}
+	
 	public static class ViewCategorieWithOrigami extends ViewCategorie {
 	}
 }
