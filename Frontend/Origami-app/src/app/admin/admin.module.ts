@@ -15,9 +15,7 @@ const routes: Routes = [
         CommonModule,
         BrowserModule,
         FormsModule,
-        RouterModule,
-        RouterModule.forChild(routes),
-        HttpModule,
+        RouterModule.forChild(routes)
     ],
     declarations: [
         AdminComponent

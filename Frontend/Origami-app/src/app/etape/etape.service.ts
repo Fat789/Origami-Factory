@@ -11,7 +11,7 @@ export class EtapeService {
     etape: Etape;
 
     constructor(private http: Http, private appConfig: AppConfigurationService) {
-        this.apiUrl = this.appConfig.apiUrl + '/etape/';
+        this.apiUrl = this.appConfig.apiUrl + '/etape';
         this.http
             .get(this.apiUrl)
             .subscribe(resp => this.etapes = resp.json());
