@@ -15,6 +15,7 @@ import {EtapeModule} from './etape/etape.module';
 import {AppConfigurationService} from './app-configuration.service';
 
 const routes: Routes = [
+    {path: 'accueil', component: AccueilComponent},
     {path: '', redirectTo: 'accueil', pathMatch: 'full'},
     {path: '**', redirectTo: 'accueil', pathMatch: 'full'}
 ];

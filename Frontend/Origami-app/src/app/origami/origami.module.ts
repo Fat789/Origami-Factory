@@ -16,7 +16,6 @@ const routes: Routes = [
         CommonModule,
         BrowserModule,
         FormsModule,
-        RouterModule,
         RouterModule.forChild(routes)
     ],
     declarations: [

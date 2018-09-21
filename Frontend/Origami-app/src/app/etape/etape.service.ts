@@ -10,8 +10,8 @@ export class EtapeService {
     etapes: Array<Etape>;
     etape: Etape;
 
-    constructor(private http: Http, private appConfig: AppConfigurationService, private etapeService: EtapeService) {
-        this.apiUrl = this.appConfig.apiUrl + 'etape/';
+    constructor(private http: Http, private appConfig: AppConfigurationService) {
+        this.apiUrl = this.appConfig.apiUrl + '/etape/';
         this.http
             .get(this.apiUrl)
             .subscribe(resp => this.etapes = resp.json());
@@ -24,7 +24,7 @@ export class EtapeService {
     public findById(id: number, http?: boolean): any {
         if (http) {
             return this.http
-                .get(this.appConfig.apiUrl + 'eleve/' + id);
+                .get(this.appConfig.apiUrl + '/etape/' + id);
         }
 
         for (const etape of this.etapes) {
@@ -53,7 +53,7 @@ export class EtapeService {
                     );
             } else {
                 this.http
-                    .put(this.appConfig.apiUrl + 'etape/' + etape.id, etape)
+                    .put(this.appConfig.apiUrl + '/etape/' + etape.id, etape)
                     .subscribe(
                         resp => null,
                         err => console.log(err)
@@ -66,7 +66,7 @@ export class EtapeService {
         const pos: number = this.etapes.indexOf(etape);
 
         this.http
-            .delete(this.appConfig.apiUrl + 'eleve/' + etape.id)
+            .delete(this.appConfig.apiUrl + '/etape/' + etape.id)
             .subscribe(
                 resp => this.etapes.splice(pos, 1),
                 err => console.log(err)
