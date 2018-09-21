@@ -75,6 +75,5 @@ export class OrigamiService {
             .subscribe(resp => this.origamis.splice(pos, 1),
                 err => console.log(err),
             );
-        // this.origamis.splice(pos, 1);
     }
  }

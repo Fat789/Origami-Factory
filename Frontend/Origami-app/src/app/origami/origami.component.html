@@ -5,7 +5,6 @@
   <table class="table table-stripped mt-5">
     <thead>
     <tr>
-      <th>Id</th>
       <th>Nom</th>
       <th>Temps Rea</th>
       <th>Nb Feuille</th>
@@ -22,12 +21,11 @@
 
     <tbody>
     <tr *ngFor="let origami of list()">
-      <td><a [routerLink]="['/origami', origami.id]">{{ origami.nom }}</a></td>
-      <td>{{ origami.id }}</td>
-      <td>{{ origami.nom }}</td>
+      <td><a [routerLink]="['/origami' + origami.id]">{{ origami.nom }}</a></td>
       <td>{{ origami.tempsRea }}</td>
       <td>{{ origami.nbFeuille }}</td>
       <td>{{ origami.niveau }}</td>
+      <td>{{ origami.note }}</td>
       <td>{{ origami.actif }}</td>
       <td>{{ origami.youtube }}</td>
       <td>{{ origami.imageOri }}</td>
@@ -37,6 +35,22 @@
       <td>
         <button class="btn btn-danger" (click)="delete(origami)">Supprimer</button>
       </td>
+
+    <tr>
+      <td colspan="6"><a class="btn btn-success" (click)="add()">Ajouter</a></td>
+    </tr>
+    <tr *ngIf="formOrigami">
+      <td>{{formOrigami.id}}</td>
+      <td><input type="text" placeholder="Nom" [(ngModel)]="formOrigami.nom"/></td>
+      <td><input type="text" placeholder="Temps" [(ngModel)]="formOrigami.tempsRea"/></td>
+      <td><input type="text" placeholder="Nb de feuille" [(ngModel)]="formOrigami.nbFeuille"/></td>
+      <td><input type="text" placeholder="Niveau" [(ngModel)]="formOrigami.niveau"/></td>
+      <td><input type="text" placeholder="Note" [(ngModel)]="formOrigami.note"/></td>
+      <td><input type="text" placeholder="Actif" [(ngModel)]="formOrigami.actif"/></td>
+      <td><input type="text" placeholder="Lien Youtube" [(ngModel)]="formOrigami.youtube"/></td>
+      <td><input type="text" placeholder="Aperçu" [(ngModel)]="formOrigami.imageOri"/></td>
+      <td><a class="btn btn-info" (click)="save()">Valider</a></td>
+      <td><a class="btn btn-warning" (click)="cancel()">Annuler</a></td>
     </tr>
     </tbody>
   </table>
