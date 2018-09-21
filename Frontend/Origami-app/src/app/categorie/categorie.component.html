@@ -1,3 +1,65 @@
-<p>
-  categorie works!
-</p>
+<div class="container"><h1 class="text-center">MaJ Categorie Admin</h1>
+
+    <div class="container">
+
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Identifiant</th>
+                <th>Nom</th>
+                <th></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let categorie of list()">
+                <td [routerLink]="['/categorie/'+categorie.id]">{{categorie.id}}</td>
+                <td>{{categorie.nom}}</td>
+                <td><a class="btn btn-info" (click)="edit(categorie.id)">Editer</a></td>
+                <td><a class="btn btn-danger" (click)="delete(categorie.id)">Supprimer</a></td>
+            </tr>
+            <tr>
+                <td colspan="6"><a class="btn btn-success" (click)="add()">Ajouter</a></td>
+            </tr>
+            <tr *ngIf="formCategorie">
+                <td>{{formCategorie.id}}</td>
+                <td><input type="text" [(ngModel)]="formCategorie.nom"/></td>
+                <td><a class="btn btn-info" (click)="save()">Valider</a></td>
+                <td><a class="btn btn-warning">Annuler</a></td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+
+  <!--<div>-->
+
+      <!--<nav class="navbar navbar-inverse">-->
+          <!--<div class="container-fluid">-->
+              <!--<div class="navbar-header">-->
+                  <!--<a class="navbar-brand" href="#">WebSiteName</a>-->
+              <!--</div>-->
+              <!--<ul class="nav navbar-nav">-->
+                  <!--<li class="active"><a href="#">Home</a></li>-->
+                  <!--<li class="dropdown">-->
+                      <!--<a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1-->
+                          <!--<span class="caret"></span></a>-->
+                      <!--<ul class="dropdown-menu">-->
+                          <!--<li><a href="#">Page 1-1</a></li>-->
+                          <!--<li><a href="#">Page 1-2</a></li>-->
+                          <!--<li><a href="#">Page 1-3</a></li>-->
+                      <!--</ul>-->
+                  <!--</li>-->
+                  <!--<li><a href="#">Page 2</a></li>-->
+                  <!--<li><a href="#">Page 3</a></li>-->
+              <!--</ul>-->
+          <!--</div>-->
+      <!--</nav>-->
+  <!--</div>-->
+
+  <div>
+    <img class="img-fluid" src="https://guildincorporated.org/wp-content/uploads/2014/12/Bird-Collage.jpg">
+  </div>
+</div>
+
