@@ -1,7 +1,7 @@
 import {Origami} from './origami';
 import {Http} from '@angular/http';
 import {Injectable} from '@angular/core';
-import {AppConfigurationService} from '../app-configuratio.service';
+import {AppConfigurationService} from '../app-configuration.service';
 
 
 @Injectable()
