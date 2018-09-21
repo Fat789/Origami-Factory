@@ -4,6 +4,7 @@ import {FormsModule} from '@angular/forms';
 import {RouterModule, Routes} from '@angular/router';
 import {NgModule} from '@angular/core';
 import {OrigamiComponent} from './origami.component';
+import {OrigamiService} from './origami.service';
 
 
 const routes: Routes = [
@@ -20,6 +21,8 @@ const routes: Routes = [
     ],
     declarations: [
         OrigamiComponent
-    ]
+    ],
+    providers: [OrigamiService]
 })
-export class OrigamiModule { }
+export class OrigamiModule {
+}

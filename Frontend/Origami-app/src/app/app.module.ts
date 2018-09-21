@@ -38,7 +38,7 @@ const routes: Routes = [
         RouterModule.forRoot(routes),
         CategorieModule,
         OrigamiModule,
-        EtapeModule,
+        EtapeModule
     ],
     providers: [
         AppConfigurationService

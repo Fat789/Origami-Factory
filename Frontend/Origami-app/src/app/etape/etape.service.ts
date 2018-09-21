@@ -21,43 +21,55 @@ export class EtapeService {
         return this.etapes;
     }
 
-    public findById(id: number) {
-        this.http
-            .get(this.apiUrl + id)
-            .subscribe(resp => {
-                this.etape = resp.json()
-                this.refresh();
-            });
-    }
-
-    public refresh() {
-    }
-
-    public save(salon: Etape) {
-        if (this.etape.id) {
-            this.update(this.etape);
-        } else {
-            this.create(this.etape);
+    public findById(id: number, http?: boolean): any {
+        if (http) {
+            return this.http
+                .get(this.appConfig.apiUrl + 'eleve/' + id);
         }
+
+        for (const etape of this.etapes) {
+            if (etape.id === id) {
+                return etape;
+            }
+        }
+
+        return null;
     }
 
-    public create(etape: Etape) {
-        this.http
-            .post(this.apiUrl, etape)
-            .subscribe(resp => this.etapes.push(resp.json()));
-    }
+    public save(etape: Etape) {
+        if (etape) {
+            if (!etape.id) {
+                if (this.etapes.length > 0) {
+                    etape.id = this.etapes[this.etapes.length - 1].id + 1;
+                } else {
+                    etape.id = 1;
+                }
 
-    public update(etape: Etape) {
-        this.http
-            .put(this.apiUrl + etape.id, etape)
-            .subscribe();
+                this.http
+                    .post(this.appConfig.apiUrl + '/etape', etape)
+                    .subscribe(
+                        resp => this.etapes.push(etape),
+                        err => console.log(err)
+                    );
+            } else {
+                this.http
+                    .put(this.appConfig.apiUrl + 'etape/' + etape.id, etape)
+                    .subscribe(
+                        resp => null,
+                        err => console.log(err)
+                    );
+            }
+        }
     }
 
     public delete(etape: Etape) {
         const pos: number = this.etapes.indexOf(etape);
 
         this.http
-            .delete(this.apiUrl + etape.id)
-            .subscribe(resp => this.etapes.splice(pos, 1));
+            .delete(this.appConfig.apiUrl + 'eleve/' + etape.id)
+            .subscribe(
+                resp => this.etapes.splice(pos, 1),
+                err => console.log(err)
+            );
     }
 }

@@ -17,25 +17,28 @@ export class EtapeComponent implements OnInit {
     ngOnInit() {
     }
 
+    public list() {
+        return this.etapeService.findAll();
+    }
+
     public add() {
         this.formEtape = new Etape();
     }
 
-    public edit(etape: Etape) {
-        this.formEtape = Etape;
+    public edit(id: number) {
+        this.formEtape = this.etapeService.findById(id);
     }
 
-    public create() {
-        this.EtapeService.save(this.formEtape);
+    public save() {
+        this.etapeService.save(this.formEtape);
         this.formEtape = null;
+    }
+
+    public delete(id: number) {
+        this.etapeService.delete(this.etapeService.findById(id));
     }
 
     public cancel() {
-        this.formEtape = null;
-    }
-
-    public delete(etape: Etape) {
-        this.EtapeService.delete(etape);
         this.formEtape = null;
     }
 }
