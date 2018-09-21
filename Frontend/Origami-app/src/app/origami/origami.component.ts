@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {OrigamiService} from './origami.service';
+import {Origami} from './origami';
 
 @Component({
   selector: 'app-origami',
@@ -7,35 +9,36 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrigamiComponent implements OnInit {
 
-  constructor() { }
+  private formOrigami: Origami= null;
+
+  constructor(private origamiService: OrigamiService) { }
 
   ngOnInit() {
   }
 
-//     public list() {
-//         return this.eleveService.findAll();
-//     }
-//
-//     public add() {
-//         this.formEleve = new Eleve();
-//     }
-//
-//     public edit(id: number) {
-//         this.formEleve = this.eleveService.findById(id);
-//     }
-//
-//     public save() {
-//         this.eleveService.save(this.formEleve);
-//         this.formEleve = null;
-//     }
-//
-//     public cancel () {
-//         this.formEleve = null;
-//     }
-//
-//     public delete(id: number) {
-//         this.eleveService.delete(this.eleveService.findById(id));
-//     }
-// }
-//
+    public list() {
+        return this.origamiService.findAll();
+    }
+
+    public add() {
+        this.formOrigami = new Origami();
+    }
+
+    public edit(id: number) {
+        this.formOrigami = this.origamiService.findById(id);
+    }
+
+    public save() {
+        this.origamiService.save(this.formOrigami);
+        this.formOrigami = null;
+    }
+
+    public cancel () {
+        this.formOrigami = null;
+    }
+
+    public delete(id: number) {
+        this.origamiService.delete(this.origamiService.findById(id));
+    }
+
 }

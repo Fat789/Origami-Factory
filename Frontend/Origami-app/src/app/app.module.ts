@@ -13,6 +13,7 @@ import {AccueilComponent} from './accueil/accueil.component';
 import {CategorieModule} from './categorie/categorie.module';
 import {OrigamiModule} from './origami/origami.module';
 import {EtapeModule} from './etape/etape.module';
+import {AppConfigService} from './app-config.service';
 
 const routes: Routes = [
     {path: 'accueil', component: AccueilComponent},
@@ -39,7 +40,9 @@ const routes: Routes = [
         OrigamiModule,
         EtapeModule,
     ],
-    providers: [],
+    providers: [
+        AppConfigService
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule {

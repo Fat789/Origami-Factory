@@ -10,7 +10,11 @@ export class Origami {
     public youtube: string;
     public imageOri: string;
 
-    constructor(id: number, nom: string, tempsRea: number, nbFeuille: number, niveau: number, note: number, actif: boolean, youtube: string, imageOri: string) {
+
+
+
+    constructor(id?: number, nom?: string, tempsRea?: number, nbFeuille?: number, niveau?: number, note?: number, actif?: boolean,
+                youtube?: string, imageOri?: string) {
         this.id = id;
         this.nom = nom;
         this.tempsRea = tempsRea;
