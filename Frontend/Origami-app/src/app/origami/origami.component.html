@@ -1,3 +1,43 @@
-<p>
+<div class="container">
+  <h1>Liste des origamis</h1>
 
-</p>
+
+  <table class="table table-stripped mt-5">
+    <thead>
+    <tr>
+      <th>Id</th>
+      <th>Nom</th>
+      <th>Temps Rea</th>
+      <th>Nb Feuille</th>
+      <th>Niveau</th>
+      <th>Note</th>
+      <th>Actif</th>
+      <th>Lien Youtube</th>
+      <th>Aperçu</th>
+      <th></th>
+      <th></th>
+
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr *ngFor="let origami of origamis">
+      <td><a [routerLink]="['/origami', origami.id]">{{ origami.nom }}</a></td>
+      <td>{{ origami.id }}</td>
+      <td>{{ origami.nom }}</td>
+      <td>{{ origami.tempsRea }}</td>
+      <td>{{ origami.nbFeuille }}</td>
+      <td>{{ origami.niveau }}</td>
+      <td>{{ origami.actif }}</td>
+      <td>{{ origami.youtube }}</td>
+      <td>{{ origami.imageOri }}</td>
+      <td>
+        <button class="btn btn-warning" (click)="edit(origami)">Editer</button>
+      </td>
+      <td>
+        <button class="btn btn-danger" (click)="delete(origami)">Supprimer</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

@@ -4,6 +4,7 @@ import {FormsModule} from '@angular/forms';
 import {RouterModule, Routes} from '@angular/router';
 import {NgModule} from '@angular/core';
 import {CategorieComponent} from './categorie.component';
+import {CategorieService} from './categorie.service';
 
 const routes: Routes = [
     {path: 'categorie', component: CategorieComponent},
@@ -16,6 +17,10 @@ const routes: Routes = [
         FormsModule,
         RouterModule,
         RouterModule.forChild(routes)
+    ],
+
+    providers: [
+       CategorieService
     ],
     declarations: [
         CategorieComponent
