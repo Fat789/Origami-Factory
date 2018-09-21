@@ -38,4 +38,4 @@ export class OrigamiComponent implements OnInit {
 //     }
 // }
 //
-// }
+}
