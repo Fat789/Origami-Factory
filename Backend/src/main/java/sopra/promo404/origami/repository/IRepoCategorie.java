@@ -7,7 +7,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import sopra.promo404.origami.model.Categorie;
-import sopra.promo404.origami.model.Origami;
 
 public interface IRepoCategorie extends JpaRepository<Categorie, Long> {
 	@Query("select c from Categorie c")
