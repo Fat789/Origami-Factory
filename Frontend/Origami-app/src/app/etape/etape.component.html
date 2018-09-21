@@ -22,8 +22,8 @@
             <td>{{ etape.description }}</td>
             <td>{{ etape.imageEtape }}</td>
             <td>
-                <button class="btn btn-warning" (click)="edit(etape)">Editer</button>
-                <button class="btn btn-danger" (click)="delete(etape)">Supprimer</button>
+                <button class="btn btn-warning" (click)="edit(etape.id)">Editer</button>
+                <button class="btn btn-danger" (click)="delete(etape.id)">Supprimer</button>
             </td>
         </tr>
         <tr>
