@@ -5,26 +5,37 @@
     <table class="table table-stripped mt-5">
         <thead>
         <tr>
-            <th>Numéro de l'étape</th>
-            <th>Description</th>
-            <th>Image</th>
+            <th class="text-center">Id</th>
+            <th class="text-center">Numéro de l'étape</th>
+            <th class="text-center">Description</th>
+            <th class="text-center">Image</th>
             <th></th>
             <th></th>
+
         </tr>
         </thead>
 
         <tbody>
-        <tr *ngFor="let etape of etapes">
-            <td><a [routerLink]="['/etape', etape.id]">{{ etape.nom }}</a></td>
-            <td>{{ etape.numeroEtape }}</td>
+        <tr *ngFor="let etape of list()">
+            <td>{{etape.id}}</td>
+            <td class="text-center">{{ etape.numeroEtape }}</td>
             <td>{{ etape.description }}</td>
             <td>{{ etape.imageEtape }}</td>
             <td>
                 <button class="btn btn-warning" (click)="edit(etape)">Editer</button>
-            </td>
-            <td>
                 <button class="btn btn-danger" (click)="delete(etape)">Supprimer</button>
             </td>
+        </tr>
+        <tr>
+            <td colspan="6"><a class="btn btn-success" (click)="add()">Ajouter</a></td>
+        </tr>
+        <tr *ngIf="formEtape">
+            <td>{{formEtape.id}}</td>
+            <td><input type="text" placeholder="numéro étape" [(ngModel)]="formEtape.numeroEtape"/></td>
+            <td><input type="text" placeholder="description" [(ngModel)]="formEtape.description"/></td>
+            <td><input type="text" placeholder="image étape" [(ngModel)]="formEtape.imageEtape"/></td>
+            <td><a class="btn btn-info" (click)="save()">Valider</a></td>
+            <td><a class="btn btn-warning" (click)="cancel()">Annuler</a></td>
         </tr>
         </tbody>
     </table>
