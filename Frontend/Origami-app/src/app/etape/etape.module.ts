@@ -7,7 +7,6 @@ import {EtapeComponent} from './etape.component';
 import {EtapeService} from './etape.service';
 
 
-
 const routes: Routes = [
     {path: 'etape', component: EtapeComponent},
 ];
@@ -25,4 +24,4 @@ const routes: Routes = [
     ],
     providers: [EtapeService]
 })
-export class EtapeModule { }
+export class EtapeModule {}
