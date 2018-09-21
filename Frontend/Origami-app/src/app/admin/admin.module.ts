@@ -4,7 +4,6 @@ import {FormsModule} from '@angular/forms';
 import {RouterModule, Routes} from '@angular/router';
 import {AdminComponent} from './admin.component';
 import {NgModule} from '@angular/core';
-import {HttpModule} from '@angular/http';
 
 const routes: Routes = [
     {path: 'admin', component: AdminComponent},
