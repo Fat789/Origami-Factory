@@ -11,7 +11,7 @@ import sopra.promo404.origami.model.Etape;
 
 public interface IRepoEtape extends JpaRepository<Etape, Long>{
 
-	@Query("select f from Etape e")
+	@Query("select e from Etape e")
 	List<Etape> findAllEtape();
 	
 	

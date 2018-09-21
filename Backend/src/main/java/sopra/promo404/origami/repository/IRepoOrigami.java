@@ -9,10 +9,10 @@ import org.springframework.data.repository.query.Param;
 import sopra.promo404.origami.model.Origami;
 
 public interface IRepoOrigami extends JpaRepository<Origami, Long>{
-	@Query("select o from Origami o where o.id= :id")
+	@Query("select o from Origami o")
 	List<Origami> findAllOrigami();
 	
-	@Query("select distinct o from Origami o join fetch o.Etapes e where o.id= :id")
-	Origami findOrigamiWithEtapes(@Param("nom") String nom);
+	@Query("select distinct o from Origami o left join fetch o.etapes e where o.id= :id")
+	Origami findOrigamiWithEtapes(@Param("id") Long id);
 	
 }

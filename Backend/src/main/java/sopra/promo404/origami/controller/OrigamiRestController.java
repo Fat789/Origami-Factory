@@ -34,11 +34,11 @@ public class OrigamiRestController {
 			return origamiRepo.findAllOrigami();
 		}
 
-		@GetMapping("/{nom}")
+		@GetMapping("/{id}")
 		@ResponseBody
 		@JsonView(Views.ViewOrigamiWithEtapes.class)
-		public Origami detail(@PathVariable String nom) {
-			return origamiRepo.findOrigamiWithEtapes(nom);
+		public Origami detail(@PathVariable Long id) {
+			return origamiRepo.findOrigamiWithEtapes(id);
 		}
 
 		@PostMapping("")
