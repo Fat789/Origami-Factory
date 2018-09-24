@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Etape} from './etape';
 import {EtapeService} from './etape.service';
+import {Origami} from '../origami/origami';
+import {OrigamiService} from '../origami/origami.service';
 
 @Component({
     selector: 'app-etape',
@@ -10,8 +12,7 @@ import {EtapeService} from './etape.service';
 export class EtapeComponent implements OnInit {
     formEtape: Etape;
 
-    constructor(private etapeService: EtapeService) {
-
+    constructor(private etapeService: EtapeService, private origamiService: OrigamiService) {
     }
 
     ngOnInit() {
