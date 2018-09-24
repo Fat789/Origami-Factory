@@ -13,6 +13,7 @@
       <th>Actif</th>
       <th>Lien Youtube</th>
       <th>Aperçu</th>
+      <th>Categorie</th>
       <th></th>
       <th></th>
 
@@ -29,11 +30,12 @@
       <td>{{ origami.actif }}</td>
       <td>{{ origami.youtube }}</td>
       <td>{{ origami.imageOri }}</td>
+      <td>{{ origami.categorie }}</td>
       <td>
-        <button class="btn btn-warning" (click)="edit(origami)">Editer</button>
+        <button class="btn btn-warning" (click)="edit(origami.id)">Editer</button>
       </td>
       <td>
-        <button class="btn btn-danger" (click)="delete(origami)">Supprimer</button>
+        <button class="btn btn-danger" (click)="delete(origami.id)">Supprimer</button>
       </td>
 
     <tr>
@@ -49,6 +51,11 @@
       <td><input type="text" placeholder="Actif" [(ngModel)]="formOrigami.actif"/></td>
       <td><input type="text" placeholder="Lien Youtube" [(ngModel)]="formOrigami.youtube"/></td>
       <td><input type="text" placeholder="Aperçu" [(ngModel)]="formOrigami.imageOri"/></td>
+      <td>
+        <select>
+          <option *ngFor="let origami of list()">{{origami.categorie.nom}}</option>
+        </select>
+      </td>
       <td><a class="btn btn-info" (click)="save()">Valider</a></td>
       <td><a class="btn btn-warning" (click)="cancel()">Annuler</a></td>
     </tr>

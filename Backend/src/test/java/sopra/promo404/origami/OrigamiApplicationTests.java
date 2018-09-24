@@ -43,13 +43,15 @@ public class OrigamiApplicationTests {
 		e1.setNumeroEtape(1);
 		e1.setDescription(null);
 		e1.setImageEtape(null);
-
+		e1.getOrigami().setId(100L);
+		
 		etapeRepo.save(e1);
 
 		Etape e2 = new Etape();
 		e2.setNumeroEtape(2);
 		e2.setDescription(null);
 		e2.setImageEtape(null);
+		e2.getOrigami().setId(100L);
 
 		etapeRepo.save(e2);
 
@@ -57,6 +59,7 @@ public class OrigamiApplicationTests {
 		e3.setNumeroEtape(3);
 		e3.setDescription(null);
 		e3.setImageEtape(null);
+		e3.getOrigami().setId(100L);
 
 		etapeRepo.save(e3);
 
@@ -64,6 +67,7 @@ public class OrigamiApplicationTests {
 		e4.setNumeroEtape(4);
 		e4.setDescription(null);
 		e4.setImageEtape(null);
+		e4.getOrigami().setId(100L);
 
 		etapeRepo.save(e4);
 

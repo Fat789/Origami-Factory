@@ -1,17 +1,22 @@
 package sopra.promo404.origami.model;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Index;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
+
 import com.fasterxml.jackson.annotation.JsonView;
 @Entity
 @Table(name = "origami")
@@ -40,31 +45,34 @@ public class Origami {
 	@OneToMany(mappedBy="origami" , fetch=FetchType.EAGER)
 	private List<Etape> etapes;
 	@ManyToMany
-	@JoinTable(name="categorie_origami")
-	private List<Categorie> categories;
+	@JoinTable(
+		name="categorie_origami",
+		joinColumns = @JoinColumn(name="origami_id", referencedColumnName="origami_id"),
+		inverseJoinColumns = @JoinColumn(name= "categorie_id", referencedColumnName="id"),
+		uniqueConstraints = @UniqueConstraint(columnNames = {"origami_id", "categorie_id"}))
+	private Set<Categorie> categories;
 
 	
 	public Origami() {
 		super();
 	}
-	
-	
 
-	public Origami(Long id, String nom, String tempsRea, int nbFeuille, Niveau niveau, float note, boolean actif,
-			String youtube, String imageOri, List<Categorie> categories) {
-		super();
-		this.id = id;
-		this.nom = nom;
-		this.tempsRea = tempsRea;
-		this.nbFeuille = nbFeuille;
-		this.niveau = niveau;
-		this.note = note;
-		this.actif = actif;
-		this.youtube = youtube;
-		this.imageOri = imageOri;
-		this.categories = categories;
-	}
 
+//	public Origami(Long id, String nom, String tempsRea, int nbFeuille, Niveau niveau, float note, boolean actif,
+//			String youtube, String imageOri, List<Etape> etapes, Set<Categorie> categories) {
+//		super();
+//		this.id = id;
+//		this.nom = nom;
+//		this.tempsRea = tempsRea;
+//		this.nbFeuille = nbFeuille;
+//		this.niveau = niveau;
+//		this.note = note;
+//		this.actif = actif;
+//		this.youtube = youtube;
+//		this.imageOri = imageOri;
+//		this.etapes = etapes;
+//		this.categories = categories;
+//	}
 
 
 	public Long getId() {
@@ -167,14 +175,29 @@ public class Origami {
 	}
 
 
-	public List<Categorie> getCategories() {
+	public Set<Categorie> getCategories() {
 		return categories;
 	}
 
 
-	public void setCategories(List<Categorie> categories) {
+	public void setCategories(Set<Categorie> categories) {
 		this.categories = categories;
 	}
 
+
 	
-}
+
+	
+	
+
+//	public Set<Categorie> getCategories() {
+//		return categories;
+//	}
+//
+//
+//	public void setCategories(Set<Categorie> categories) {
+//		this.categories = categories;
+//	}
+
+
+	}

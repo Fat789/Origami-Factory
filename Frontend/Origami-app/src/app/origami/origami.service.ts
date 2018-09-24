@@ -11,7 +11,7 @@ export class OrigamiService {
 
     apiUrl: string;
     constructor(private http: Http, private appConfig: AppConfigurationService) {
-        this.apiUrl = appConfig.apiUrl + '/origami';
+        this.apiUrl = appConfig.apiUrl + '/origami/';
 
         this.http
             .get(this.apiUrl)
@@ -22,12 +22,12 @@ export class OrigamiService {
         return this.origamis;
     }
 
-    public findById(id: number, http?: Boolean):any {
-
-        if(http){
+    public findById(id: number, http?: boolean): any {
+        if (http) {
             return this.http
                 .get(this.apiUrl + id);
         }
+
         for (const origami of this.origamis) {
             if (origami.id === id) {
                 return origami;
@@ -46,8 +46,7 @@ export class OrigamiService {
                     origami.id = 1;
                 }
 
-                // this.origamis.push(origami);
-                this.http
+                    this.http
                     .post(this.apiUrl, origami)
                     .subscribe(
                         resp => this.origamis.push(origami),
@@ -56,7 +55,7 @@ export class OrigamiService {
             } else {
 
                 this.http
-                    .put(this.apiUrl, origami)
+                    .put(this.apiUrl + origami.id, origami)
                     .subscribe(
                         resp => this.origamis.push(origami),
                         err => console.log(err)

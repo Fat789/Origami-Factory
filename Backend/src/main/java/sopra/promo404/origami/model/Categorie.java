@@ -1,5 +1,6 @@
 package sopra.promo404.origami.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -10,10 +11,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
 @Entity
+@Table(name="categorie")
 public class Categorie {
 	@Id
 	@GeneratedValue
@@ -31,9 +34,9 @@ public class Categorie {
 	@JsonView(Views.ViewCategorieDetail.class)
 	private List<Categorie> superCats;
 
-//	@JsonView(Views.ViewCategorie.class)
 	
 	@ManyToMany(mappedBy = "categories", fetch = FetchType.EAGER)
+	@JsonView(Views.ViewCategorie.class)
 	private List<Origami> origamis;
 
 	public Categorie() {
