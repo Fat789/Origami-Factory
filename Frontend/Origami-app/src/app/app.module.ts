@@ -13,6 +13,7 @@ import {OrigamiModule} from './origami/origami.module';
 import {EtapeModule} from './etape/etape.module';
 import {AppConfigurationService} from './app-configuration.service';
 import {AdminComponent} from './admin/admin.component';
+import {FooterComponent} from './footer/footer.component';
 
 const routes: Routes = [
     {path: 'accueil', component: AccueilComponent},
@@ -26,7 +27,8 @@ const routes: Routes = [
         AppComponent,
         NavbarComponent,
         AccueilComponent,
-        AdminComponent
+        AdminComponent,
+        FooterComponent
 
     ],
     imports: [
