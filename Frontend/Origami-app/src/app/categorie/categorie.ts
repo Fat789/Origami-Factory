@@ -11,7 +11,7 @@ export class Categorie {
 
     constructor(id?: number,
                 nom?: string,
-                superCat?:  Categorie,
+                superCat?: Categorie,
                 superCats?: Array<Categorie>,
                 origamis?: Array<Origami>) {
         this.id = id;
@@ -19,4 +19,5 @@ export class Categorie {
         this.superCat = superCat;
         this.superCats = superCats;
         this.origamis = origamis;
-    }}
+    }
+}

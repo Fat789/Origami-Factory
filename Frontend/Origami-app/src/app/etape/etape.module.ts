@@ -19,7 +19,7 @@ const routes: Routes = [
         RouterModule.forChild(routes)
     ],
     declarations: [
-        EtapeComponent
+        EtapeComponent,
     ],
     providers: [EtapeService]
 })

@@ -31,8 +31,10 @@
         </tr>
         <tr *ngIf="formEtape">
             <td>
-                <select>
-                    <option *ngFor="let etape of list()">{{etape.origami.nom}}</option>
+                <select [(ngModel)]="formEtape.origami.id"
+                        [ngModelOptions]="{standalone: true}" >
+                    <option  value="null" ></option>
+                    <option *ngFor="let origami of listOrigamis()" [ngValue]="origami.id">{{origami.nom}}</option>
                 </select>
             </td>
             <td><input type="text" placeholder="numéro étape" [(ngModel)]="formEtape.numeroEtape"/></td>

@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {Etape} from './etape';
 import {EtapeService} from './etape.service';
 import {Origami} from '../origami/origami';
-import {OrigamiService} from '../origami/origami.service';
 
 @Component({
     selector: 'app-etape',
@@ -10,9 +9,9 @@ import {OrigamiService} from '../origami/origami.service';
     styleUrls: ['./etape.component.css']
 })
 export class EtapeComponent implements OnInit {
-    formEtape: Etape;
+    private formEtape: Etape = null;
 
-    constructor(private etapeService: EtapeService, private origamiService: OrigamiService) {
+    constructor(private etapeService: EtapeService) {
     }
 
     ngOnInit() {
@@ -22,12 +21,18 @@ export class EtapeComponent implements OnInit {
         return this.etapeService.findAll();
     }
 
+    public listOrigamis() {
+        return this.etapeService.findAllOrigamis();
+    }
+
     public add() {
         this.formEtape = new Etape();
+        this.formEtape.origami = new Origami();
     }
 
     public edit(id: number) {
         this.formEtape = this.etapeService.findById(id);
+        this.formEtape.origami = new Origami();
     }
 
     public save() {
