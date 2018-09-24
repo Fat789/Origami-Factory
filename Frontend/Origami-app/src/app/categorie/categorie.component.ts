@@ -23,6 +23,7 @@ export class CategorieComponent implements OnInit {
 
     public add() {
         this.formCategorie = new Categorie();
+        this.formCategorie.superCat = new Categorie();
     }
 
     public edit(id: number) {
@@ -36,5 +37,9 @@ export class CategorieComponent implements OnInit {
 
     public delete(id: number) {
         this.categorieService.delete(this.categorieService.findById(id));
+    }
+
+    public cancel() {
+        this.formCategorie = null;
     }
 }

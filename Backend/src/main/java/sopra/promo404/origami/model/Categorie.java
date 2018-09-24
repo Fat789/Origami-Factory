@@ -32,6 +32,7 @@ public class Categorie {
 	private List<Categorie> superCats;
 
 //	@JsonView(Views.ViewCategorie.class)
+	
 	@ManyToMany(mappedBy = "categories", fetch = FetchType.EAGER)
 	private List<Origami> origamis;
 

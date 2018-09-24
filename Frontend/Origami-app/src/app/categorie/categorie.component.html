@@ -7,6 +7,7 @@
             <tr>
                 <th>Identifiant</th>
                 <th>Nom</th>
+                <th>Catégorie mère</th>
                 <th></th>
                 <th></th>
             </tr>
@@ -15,6 +16,7 @@
             <tr *ngFor="let categorie of list()">
                 <td>{{categorie.id}}</td>
                 <td>{{categorie.nom}}</td>
+                <td><p *ngIf="categorie.superCat">{{categorie.superCat.id}}</td>
                 <td><a class="btn btn-info" (click)="edit(categorie.id)">Editer</a></td>
                 <td><a class="btn btn-danger" (click)="delete(categorie.id)">Supprimer</a></td>
             </tr>
@@ -24,8 +26,16 @@
             <tr *ngIf="formCategorie">
                 <td>{{formCategorie.id}}</td>
                 <td><input type="text" [(ngModel)]="formCategorie.nom"/></td>
+                <td>
+                    <select [(ngModel)]="formCategorie.superCat.id"
+                            [ngModelOptions]="{standalone: true}" >
+                        <option  value="null" ></option>
+                        <option *ngFor="let categorie of list()" [ngValue]="categorie.id">{{categorie.nom}}</option>
+                    </select>
+                </td>
+
                 <td><a class="btn btn-info" (click)="save()">Valider</a></td>
-                <td><a class="btn btn-warning">Annuler</a></td>
+                <td><a class="btn btn-warning" (click)="cancel()">Annuler</a></td>
             </tr>
             </tbody>
         </table>
