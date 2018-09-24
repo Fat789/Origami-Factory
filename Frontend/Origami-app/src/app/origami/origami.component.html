@@ -5,6 +5,7 @@
   <table class="table table-stripped mt-5">
     <thead>
     <tr>
+      <th>Id</th>
       <th>Nom</th>
       <th>Temps Rea</th>
       <th>Nb Feuille</th>
@@ -22,7 +23,8 @@
 
     <tbody>
     <tr *ngFor="let origami of list()">
-      <td><a [routerLink]="['/origami' + origami.id]">{{ origami.nom }}</a></td>
+      <td>{{ origami.id }}</td>
+      <td>{{ origami.nom }}</td>
       <td>{{ origami.tempsRea }}</td>
       <td>{{ origami.nbFeuille }}</td>
       <td>{{ origami.niveau }}</td>
@@ -52,8 +54,10 @@
       <td><input type="text" placeholder="Lien Youtube" [(ngModel)]="formOrigami.youtube"/></td>
       <td><input type="text" placeholder="Aperçu" [(ngModel)]="formOrigami.imageOri"/></td>
       <td>
-        <select>
-          <option *ngFor="let origami of list()">{{origami.categorie.nom}}</option>
+        <select [(ngModel)]="formOrigami.categorie.id"
+                [ngModelOptions]="{standalone: true}" >
+          <option  value="null" ></option>
+          <option *ngFor="let categorie of listCategories()" [ngValue]="categorie.id">{{categorie.nom}}</option>
         </select>
       </td>
       <td><a class="btn btn-info" (click)="save()">Valider</a></td>
