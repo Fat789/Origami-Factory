@@ -48,8 +48,15 @@
       <td><input type="text" placeholder="Nom" [(ngModel)]="formOrigami.nom"/></td>
       <td><input type="text" placeholder="Temps" [(ngModel)]="formOrigami.tempsRea"/></td>
       <td><input type="text" placeholder="Nb de feuille" [(ngModel)]="formOrigami.nbFeuille"/></td>
-      <td><input type="text" placeholder="Niveau" [(ngModel)]="formOrigami.niveau"/></td>
-      <td><input type="text" placeholder="Note" [(ngModel)]="formOrigami.note"/></td>
+      <td>
+        <select [(ngModel)]="formOrigami.niveau">
+          <option value=""></option>
+            <option value="0">Facile</option>
+            <option value="1">Normal</option>
+            <option value="2">Difficile</option>
+            <option value="3">Impossible</option>
+        </select>
+      </td>
       <td><input type="text" placeholder="Actif" [(ngModel)]="formOrigami.actif"/></td>
       <td><input type="text" placeholder="Lien Youtube" [(ngModel)]="formOrigami.youtube"/></td>
       <td><input type="text" placeholder="Aperçu" [(ngModel)]="formOrigami.imageOri"/></td>

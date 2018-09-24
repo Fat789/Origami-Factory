@@ -37,6 +37,7 @@ export class OrigamiComponent implements OnInit {
     public save() {
         this.origamiService.save(this.formOrigami);
         this.formOrigami = null;
+        window.location.reload();
     }
 
     public cancel () {
