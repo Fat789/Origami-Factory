@@ -10,6 +10,18 @@
     background-position: center;
     z-index: -1;
 }
+#accueil-back{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0px;
+    left: 0px;
+    opacity: 0.5;
+    background-image: url("https://i.ytimg.com/vi/aueh3G6GQvQ/maxresdefault.jpg");
+    background-size: cover;
+    background-position: center;
+    z-index: -0;
+}
 
 tbody {
     font-weight: bold;
@@ -54,3 +66,10 @@ thead {
     margin: 0 0 15px;
     text-align: justify;
 }
+
+#a-font {
+
+    color: whitesmoke;
+
+}
+

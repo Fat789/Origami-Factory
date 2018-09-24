@@ -1,5 +1,11 @@
+
+<br>
+<br>
+<br>
+<body>
 <div class="container">
-    <div>Vous êtes un admin ? Connectez-vous ici :</div>
+    <div><b>Vous êtes un admin ? Connectez-vous ici :</b></div>
+    <br>
     <a class="btn btn-info" (click)="coBtn = true">Admin</a>
     <form *ngIf="coBtn">
         <input type="text" name="username" placeholder="Nom d'utilisateur">
@@ -10,3 +16,4 @@
         <button class="btn btn-warning" (click)="coBtn = false" type="button" value="button">Annuler</button>
     </form>
 </div>
+</body>
